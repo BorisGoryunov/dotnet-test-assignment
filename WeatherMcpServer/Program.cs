@@ -46,7 +46,16 @@ var tools = host.Services.GetRequiredService<WeatherTools>();
 //};
 //Console.WriteLine(result);
 
-await tools.GetCurrentWeather("Moscow");
+var currentResult = await tools.GetCurrentWeather("Moscow");
+Console.WriteLine(currentResult);
+
+Console.WriteLine("forecastResult");
+var forecastResult = await tools.GetWeatherForecast("Moscow");
+Console.WriteLine(forecastResult);
+
+Console.WriteLine("GetWeatherAlerts");
+var alertsResult = await tools.GetWeatherAlerts("Moscow");
+Console.WriteLine(alertsResult);
 
 #endif
 await host.RunAsync();
